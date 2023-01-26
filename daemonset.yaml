@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: tomcatdaemonset
+  namespace: dev-namespace
+spec:
+  selector:
+    matchLabels:
+      app: tomcat
+  template:
+    metadata:
+      name: mytomcat
+      labels:
+        app: tomcat
+    spec:
+      containers:
+        - name: tomcat
+          image: ravindra45/ravindra45:1.1.1
